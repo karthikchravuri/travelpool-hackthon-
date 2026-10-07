@@ -1,0 +1,17 @@
+# One web service running the whole app: the backend builds the frontend and
+# serves frontend/dist alongside /api, so there is a single origin and no CORS.
+services:
+  - type: web
+    name: travelpool
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start --workspace backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: CORS_ORIGIN
+        value: "*"
+      # Optional — set in the Render dashboard, never commit real values:
+      #   OPENAI_API_KEY, RPC_URL, PRIVATE_KEY, CONTRACT_ADDRESS

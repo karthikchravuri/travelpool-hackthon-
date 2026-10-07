@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Environment — never commit real values
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Build output
+dist/
+build/
+coverage/
+.cache/
+*.tsbuildinfo
+
+# Hardhat
+blockchain/artifacts/
+blockchain/cache/
+blockchain/typechain-types/
+hardhat/artifacts/
+hardhat/cache/
+
+# Backend data — local database, deployment record and uploaded evidence
+backend/*.db
+backend/*.sqlite
+backend/data/*.db
+backend/data/*.sqlite
+backend/data/deployment.json
+backend/uploads/*
+!backend/uploads/.gitkeep
+!backend/data/.gitkeep
+
+# Logs and OS cruft
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
